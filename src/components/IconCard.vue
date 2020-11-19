@@ -1,6 +1,6 @@
 <template>
-    <div id="iconCard" class="bg-accent py-12 px-20 shadow-xl rounded-lg hover:bg-opacity-75">
-        <a :href="link" target="_blank">
+    <div @click="redirect" id="iconCard" class="bg-accent py-12 px-20 shadow-xl rounded-lg hover:bg-opacity-75 cursor-pointer">
+        <a>
             <img :src="require(`@/assets/${icon}.svg`)">
         </a>
     </div>
@@ -17,6 +17,11 @@
             link: {
                 type: String,
                 required: true
+            }
+        },
+        methods: {
+            redirect() {
+                window.location.href = this.link;
             }
         }
     }

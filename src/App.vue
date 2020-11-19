@@ -23,7 +23,6 @@
 </template>
 
 <script>
-
     import axios from "axios";
     import locales from "@/locales/locales";
     import ItemCard from "@/components/ItemCard";

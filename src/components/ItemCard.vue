@@ -1,7 +1,7 @@
 <template>
     <div id="itemCard" class="bg-accent rounded-lg shadow-xl pt-5 pl-10 pr-32 hover:bg-opacity-75">
         <h2 class="text-4xl font-semibold mb-5">{{ card.name }}</h2>
-        <a v-for="item in card.items" :key="item.id" :href="item.link" target="_blank" class="block text-2xl hover:underline font-light">{{ item.name }}</a>
+        <a v-for="item in card.items" :key="item.id" :href="item.link" class="block text-2xl hover:underline font-light">{{ item.name }}</a>
     </div>
 </template>
 
