@@ -1,18 +1,81 @@
 <template>
-  <div id="app" class="container mx-auto py-20 text-primary">
-    <h1 class="text-10xl font-semibold">Monday</h1>
-    <a href="https://updown.io/checks">test</a>
-  </div>
+    <div id="app" class="flex flex-col items-center mt-20 py-20 text-primary">
+        <div class="flex flex-col">
+            <div>
+                <h1 id="day" class="inline-block text-10xl font-semibold mt-2">{{ dayOfWeek }}</h1>
+                <div class="inline-block mb-5 mt-32 float-right">
+                    <ServerStatus v-for="server in servers" :key="server.id" :data="server"/>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="grid gap-10 grid-cols-2">
+                    <IconCard icon="hard-drive" link="https://drive.google.com/drive/u/0/my-drive"/>
+                    <IconCard icon="mail" link="https://mail.google.com/mail/u/0/#inbox"/>
+                    <IconCard icon="github" link="https://github.com/PeanutButte7?tab=repositories"/>
+                    <IconCard icon="bookmark" link="https://www.notion.so/Home-3c987f6f7a5640a0a3d5e0490e96d297"/>
+                </div>
+                <div class="grid gap-10 grid-cols-2 ml-32">
+                    <ItemCard v-for="card in cards" :key="card.id" :card="card"/>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'App',
-  components: {
 
-  }
-}
+    import axios from "axios";
+    import locales from "@/locales/locales";
+    import ItemCard from "@/components/ItemCard";
+    import IconCard from "@/components/IconCard";
+    import ServerStatus from "@/components/ServerStatus";
+
+    export default {
+        name: 'App',
+        components: {
+            ItemCard,
+            IconCard,
+            ServerStatus
+        },
+        data () {
+            return {
+                cards: locales.cards,
+                servers: [],
+                timer: ''
+            }
+        },
+        created () {
+            this.fetchServers();
+            this.timer = setInterval(this.fetchServers, 300000)
+        },
+        methods: {
+            fetchServers () {
+                axios.get(locales.servers).then(response => {
+                    this.servers = response.data
+                }).catch( error => { console.log(error); });
+            }
+        },
+        computed: {
+            dayOfWeek() {
+                const d = new Date();
+                const weekday = new Array(7);
+                weekday[0] = "Sunday";
+                weekday[1] = "Monday";
+                weekday[2] = "Tuesday";
+                weekday[3] = "Wednesday";
+                weekday[4] = "Thursday";
+                weekday[5] = "Friday";
+                weekday[6] = "Saturday";
+
+                return weekday[d.getDay()];
+            },
+        },
+        beforeDestroy () {
+            clearInterval(this.timer)
+        }
+    }
 </script>
 
 <style>
+
 </style>

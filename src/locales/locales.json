@@ -1,0 +1,47 @@
+{
+  "servers": "https://updown.io/api/checks?api-key=6iz9P5SEq1NdZJyWpkGf",
+  "cards": [
+    {
+      "name": "School",
+      "items": [
+        {
+          "name": "Mail",
+          "link": "https://mail.google.com/mail/u/3/#inbox"
+        },
+        {
+          "name": "Drive",
+          "link": "https://drive.google.com/drive/u/3/my-drive"
+        },
+        {
+          "name": "Classroom",
+          "link": "https://classroom.google.com/u/0/h"
+        },
+        {
+          "name": "School app",
+          "link": "https://www.skolaonline.cz/Aktuality.aspx"
+        }
+      ]
+    },
+    {
+      "name": "Web dev",
+      "items": [
+        {
+          "name": "Vue",
+          "link": "https://vuejs.org/v2/guide/"
+        },
+        {
+          "name": "Feather Icons",
+          "link": "https://feathericons.com/"
+        },
+        {
+          "name": "Tailwind",
+          "link": "https://tailwindcss.com/docs"
+        },
+        {
+          "name": "Downdetector",
+          "link": "https://downdetector.com/"
+        }
+      ]
+    }
+  ]
+}
