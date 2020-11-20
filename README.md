@@ -2,7 +2,6 @@
   <img src="https://github.com/PeanutButte7/Dashboard/blob/master/src/assets/preview.png">
 </p>
 
-# Dashboard
 Welcome to my custom dashboard inspired by the popular [Bento](https://github.com/MiguelRAvila/Bento) theme. This one is build with Vue.js as I plan to expand it later with more custom features and want the flexibility of a component based framework. All links are neatly organized in `locales.json` file so it's simple to change them. Just follow the guide bellow.
 
 ## Project setup
