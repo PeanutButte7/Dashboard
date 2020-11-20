@@ -1,5 +1,11 @@
 {
-  "servers": "https://updown.io/api/checks?api-key=6iz9P5SEq1NdZJyWpkGf",
+  "servers": "",
+  "iconCards": {
+    "topLeft": "https://drive.google.com/drive/u/0/my-drive",
+    "topRight": "https://mail.google.com/mail/u/0/#inbox",
+    "bottomLeft": "",
+    "bottomRight": ""
+  },
   "cards": [
     {
       "name": "School",
@@ -18,7 +24,7 @@
         },
         {
           "name": "School app",
-          "link": "https://www.skolaonline.cz/Aktuality.aspx"
+          "link": ""
         }
       ]
     },

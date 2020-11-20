@@ -9,10 +9,10 @@
             </div>
             <div class="flex">
                 <div class="grid gap-10 grid-cols-2">
-                    <IconCard icon="hard-drive" link="https://drive.google.com/drive/u/0/my-drive"/>
-                    <IconCard icon="mail" link="https://mail.google.com/mail/u/0/#inbox"/>
-                    <IconCard icon="github" link="https://github.com/PeanutButte7?tab=repositories"/>
-                    <IconCard icon="bookmark" link="https://www.notion.so/Home-3c987f6f7a5640a0a3d5e0490e96d297"/>
+                    <IconCard icon="hard-drive" :link="iconCards.topLeft"/>
+                    <IconCard icon="mail" :link="iconCards.topRight"/>
+                    <IconCard icon="github" :link="iconCards.bottomLeft"/>
+                    <IconCard icon="bookmark" :link="iconCards.bottomRight"/>
                 </div>
                 <div class="grid gap-10 grid-cols-2 ml-32">
                     <ItemCard v-for="card in cards" :key="card.id" :card="card"/>
@@ -38,6 +38,7 @@
         },
         data () {
             return {
+                iconCards: locales.iconCards,
                 cards: locales.cards,
                 servers: [],
                 timer: ''
@@ -49,6 +50,10 @@
         },
         methods: {
             fetchServers () {
+                if (locales.servers === "") {
+                    return;
+                }
+
                 axios.get(locales.servers).then(response => {
                     this.servers = response.data
                 }).catch( error => { console.log(error); });
