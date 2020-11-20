@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://preview.redd.it/ipih1ypz9a061.png?width=960&crop=smart&auto=webp&s=7ea5651fe6b2c46f2a244ca5a01a2ada7a7d3167g">
+  <img src="https://github.com/PeanutButte7/Dashboard/blob/master/src/assets/preview.png">
 </p>
 
 # Dashboard
