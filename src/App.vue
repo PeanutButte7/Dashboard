@@ -41,10 +41,12 @@
                 iconCards: locales.iconCards,
                 cards: locales.cards,
                 servers: [],
-                timer: ''
+                timer: '',
+                // covidData: {}
             }
         },
         created () {
+            // this.covidData = this.fetchCovidData();
             this.fetchServers();
             this.timer = setInterval(this.fetchServers, 300000)
         },
@@ -57,7 +59,16 @@
                 axios.get(locales.servers).then(response => {
                     this.servers = response.data
                 }).catch( error => { console.log(error); });
-            }
+            },
+            // fetchCovidData() {
+            //     if (locales.servers === "") {
+            //         return;
+            //     }
+            //
+            //     axios.get(locales.covidApiLink).then(response => {
+            //         return response.data
+            //     }).catch( error => { console.log(error); });
+            // }
         },
         computed: {
             dayOfWeek() {

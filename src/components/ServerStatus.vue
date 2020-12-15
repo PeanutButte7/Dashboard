@@ -1,7 +1,7 @@
 <template>
     <div id="serverStatus" class="inline-block mr-5">
         <img v-if="!data.down" src="../assets/check-circle.svg" class="inline-block mb-1">
-        <img v-else src="../assets/x-circle.svg" class="inline-block">
+        <img v-else src="../assets/x-circle.svg" class="inline-block mb-1">
         <a :href="data.url" class="text-xl ml-3">{{ data.alias }}</a>
     </div>
 </template>
