@@ -18,6 +18,9 @@
                     <ItemCard v-for="card in cards" :key="card.id" :card="card"/>
                 </div>
             </div>
+            <div class="self-end text-xl mt-4 mr-4">
+              <p> {{ advice }}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -41,13 +44,15 @@
                 iconCards: locales.iconCards,
                 cards: locales.cards,
                 servers: [],
+                advice: "",
                 timer: '',
-                // covidData: {}
+                covidData: {}
             }
         },
         created () {
-            // this.covidData = this.fetchCovidData();
             this.fetchServers();
+            this.fetchAdviceData()
+            // this.covidData = this.fetchCovidData();
             this.timer = setInterval(this.fetchServers, 300000)
         },
         methods: {
@@ -61,14 +66,25 @@
                 }).catch( error => { console.log(error); });
             },
             // fetchCovidData() {
-            //     if (locales.servers === "") {
+            //     if (locales.covidApiLink === "") {
             //         return;
             //     }
             //
             //     axios.get(locales.covidApiLink).then(response => {
+            //       console.log(response.data)
             //         return response.data
             //     }).catch( error => { console.log(error); });
-            // }
+            // },
+            fetchAdviceData() {
+                if (locales.adviceApiLink === "") {
+                    return;
+                }
+
+                axios.get(locales.adviceApiLink).then(response => {
+                    let advice = "Life tip " + response.data.slip.id + ": " + response.data.slip.advice
+                    this.advice = advice.slice(0, -1);
+                }).catch( error => { console.log(error); });
+            }
         },
         computed: {
             dayOfWeek() {
