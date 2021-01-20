@@ -1,5 +1,5 @@
 <template>
-    <div @click="redirect" id="iconCard" class="bg-accent py-12 px-20 shadow-xl rounded-lg hover:bg-opacity-75 cursor-pointer">
+    <div @click="redirect" id="iconCard" class="bg-accent py-12 px-20 shadow-xl rounded-lg hover:bg-opacity-75 cursor-pointer transition duration-200 ease-in-out">
         <a>
             <img :src="require(`@/assets/${icon}.svg`)">
         </a>
