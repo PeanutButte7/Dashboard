@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="flex flex-col items-center mt-20 py-20 text-primary">
+    <div id="app" class="flex flex-col items-center mt-32 py-20 text-primary">
         <div class="flex flex-col">
             <div>
                 <p class="tooltip inline-block">
@@ -21,13 +21,13 @@
                     <ItemCard v-for="card in cards" :key="card.id" :card="card"/>
                 </div>
             </div>
-            <div id="article-box" class="mt-10">
-                <div class="flex flex-wrap">
-                    <span v-for="(article, index) in articles" :key="index" id="articles" class="flex-grow text-center font-light rounded py-1 px-2 mb-4 mr-4 bg-accent hover:bg-opacity-75 transition duration-200 ease-in-out">
-                        <a :href="article.url" target="_blank">{{ article.title.substr(0, article.title.lastIndexOf("-")) }}</a>
-                    </span>
-                </div>
-            </div>
+<!--            <div id="article-box" class="mt-10">-->
+<!--                <div class="flex flex-wrap">-->
+<!--                    <span v-for="(article, index) in articles" :key="index" id="articles" class="flex-grow text-center font-light rounded py-1 px-2 mb-4 mr-4 bg-accent hover:bg-opacity-75 transition duration-200 ease-in-out">-->
+<!--                        <a :href="article.url" target="_blank">{{ article.title }}</a>-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </template>
@@ -54,13 +54,13 @@
                 advice: "",
                 timer: '',
                 covidData: {},
-                articles: []
+                // articles: []
             }
         },
         created () {
             this.fetchServers();
             this.fetchAdviceData();
-            this.fetchNewsData();
+            // this.fetchNewsData();
             this.covidData = this.fetchCovidData();
             this.timer = setInterval(this.fetchServers, 300000);
         },
@@ -84,16 +84,16 @@
                     return response.data
                 }).catch( error => { console.log(error); });
             },
-            fetchNewsData() {
-                if (locales.newsApiLink === "") {
-                    return;
-                }
-
-                axios.get(locales.newsApiLink).then(response => {
-                    console.log(response.data.articles)
-                    this.articles = response.data.articles.slice(0, 4);
-                }).catch( error => { console.log(error); });
-            },
+            // fetchNewsData() {
+            //     if (locales.newsApiLink === "") {
+            //         return;
+            //     }
+            //
+            //     axios.get(locales.newsApiLink).then(response => {
+            //         console.log(response.data.articles)
+            //         this.articles = response.data.articles.slice(0, 4);
+            //     }).catch( error => { console.log(error); });
+            // },
             fetchAdviceData() {
                 if (locales.adviceApiLink === "") {
                     return;

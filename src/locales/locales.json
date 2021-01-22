@@ -1,7 +1,7 @@
 {
   "servers": "https://updown.io/api/checks?api-key=6iz9P5SEq1NdZJyWpkGf",
   "covidApiLink" : "https://covid19-api.org/api/status/CZ",
-  "newsApiLink" : "http://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=aaa23d8c8eb04283b7a28e9b45bbc618",
+  "newsApiLink" : "https://gnews.io/api/v3/topics/technology?token=6b1fe5f4be6ea7ecd9e372f096e76435",
   "adviceApiLink" : "https://api.adviceslip.com/advice",
   "iconCards": {
     "topLeft": "https://drive.google.com/drive/u/0/my-drive",
